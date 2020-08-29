@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Prerequisites
 
-Things you may want to cover:
+The setups steps expect following tools installed on the system.
 
-* Ruby version
+- Github
+- Ruby [2.6.3](https://github.com/hmasila/auth-armor-ruby-example/blob/master/.ruby-version#L1)
+- Rails [5.0.2](https://github.com/hmasila/auth-armor-ruby-example/blob/master/Gemfile#L7)
 
-* System dependencies
+### 1. Check out the repository
 
-* Configuration
+```bash
+git clone git@github.com:hmasila/auth-armor-ruby-example.git
+```
 
-* Database creation
+### 2. Create database.yml file
 
-* Database initialization
+Copy the sample database.yml file and edit the database configuration as required.
 
-* How to run the test suite
+```bash
+cp config/database.yml.sample config/database.yml
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### 3. Create and setup the database
 
-* Deployment instructions
+Run the following commands to create and setup the database.
 
-* ...
+```ruby
+rails db:create
+rails db:setup
+```
+
+### 4. Start the Rails server
+
+You can start the rails server using the command given below.
+
+```ruby
+rails s
+```
+
+And now you can visit the site with the URL http://localhost:3000
