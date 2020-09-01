@@ -13,6 +13,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   config.hosts << "0974af0f39ea.ngrok.io"
+  config.hosts << "http://localhost:3001"
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
