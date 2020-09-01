@@ -1,11 +1,13 @@
 const AuthArmorSDK = require('autharmor-sdk');
+//console.log(AuthArmorSDK);
+//const SDK = new AuthArmorSDK("http://127.0.0.1:3001/v1");
+// require("autharmor-sdk");
+console.log(document.body);
 const SDK = new AuthArmorSDK("http://127.0.0.1:3001/v1");
 
+
+
 const register = async (username) => {
-	var user = {
-		username: $("#username").val(),
-	}
-	$.post('/users/create', user);
 	// Generate a new invite
 	try {
 		const invite = await SDK.invite.generateInviteCode({
