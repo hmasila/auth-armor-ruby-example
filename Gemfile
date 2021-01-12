@@ -53,7 +53,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner', '>=1.8'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '>=3.1'
