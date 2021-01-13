@@ -3,32 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # it 'has a valid factory' do
-  #   expect(FactoryGirl.create(:user)).to be_valid
-  # end
 
-  context 'validation tests' do
-    it 'ensures first name presence' do
-      user = User.new(last_name: 'msabeni', email: 'kemimsabeni@gmail.com').save
-      expect(user).to eql(false)
-    end
-
-    it 'ensures last name presence' do
-      user = User.new(first_name: 'kemi', email: 'kemimsabeni@gmail.com').save
-      expect(user).to eql(false)
-    end
-
-    it 'ensures email presence' do
-      user = User.new(first_name: 'kemi', last_name: 'msabeni').save
-      expect(user).to eql(false)
-    end
-
-    it 'should save sucessfully' do
-      user = User.new(first_name: 'kemi', last_name: 'msabeni', email: 'kemimsabeni@gmail.com').save
-      expect(user).to eql(false)
-    end
+  describe 'Presence validations' do
+    specify { should validate_presence_of(:first_name) }
+    specify { should validate_presence_of(:last_name) }
+    specify { should validate_presence_of(:email) }
+    specify { should validate_presence_of(:age) }
   end
 
-  context 'scope tests' do
+  describe "Inclusion validations" do
+    specify { should validate_iclusion_of(:GENDERS) }
   end
+
+  # USE THIS DOCUMENTATION
+  # https://matchers.shoulda.io/docs/v4.5.0/
+  
+
 end
