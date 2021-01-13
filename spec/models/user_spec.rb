@@ -3,15 +3,32 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'has a valid factory' do
-    expect(FactoryGirl.create(:user)).to be_valid
+  # it 'has a valid factory' do
+  #   expect(FactoryGirl.create(:user)).to be_valid
+  # end
+
+  context 'validation tests' do
+    it 'ensures first name presence' do
+      user = User.new(last_name: 'msabeni', email: 'kemimsabeni@gmail.com').save
+      expect(user).to eql(false)
+    end
+
+    it 'ensures last name presence' do
+      user = User.new(first_name: 'kemi', email: 'kemimsabeni@gmail.com').save
+      expect(user).to eql(false)
+    end
+
+    it 'ensures email presence' do
+      user = User.new(first_name: 'kemi', last_name: 'msabeni').save
+      expect(user).to eql(false)
+    end
+
+    it 'should save sucessfully' do
+      user = User.new(first_name: 'kemi', last_name: 'msabeni', email: 'kemimsabeni@gmail.com').save
+      expect(user).to eql(false)
+    end
   end
 
-  context 'validations' do
-    it { is_expected.to validate_presence_of :email }
-    it { is_expected.to validate_uniqueness_of :email }
-    it { is_expected.to validate_confirmation_of :password }
-    it { is_expected.to validate_presence_of :first_name }
-    it { is_expected.to validate_presence_of :last_name }
+  context 'scope tests' do
   end
 end
